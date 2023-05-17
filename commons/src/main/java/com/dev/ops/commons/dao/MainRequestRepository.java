@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author Dmitriy Lyashenko
  */
 public interface MainRequestRepository extends JpaRepository<MainRequest, Integer> {
-    Page<MainRequest> findAllByIpAddress(String ipAddress, Pageable pageable);
+    Page<MainRequest> findAllByIpAddressOrderByCreatedDateDesc(String ipAddress, Pageable pageable);
 }

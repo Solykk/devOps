@@ -37,6 +37,6 @@ public class MainRequestService implements RequestService<MainRequest.Dto> {
     public Page<MainRequest.Dto> find(HttpServletRequest request, Pageable pageable) {
         String clientAddr = NetworkUtil.getClientAddr(request);
         LOGGER.info("Find request by -> {}, pageable -> {}", clientAddr, pageable);
-        return mainRequestRepository.findAllByIpAddress(clientAddr, pageable).map(MainRequest.Dto::new);
+        return mainRequestRepository.findAllByIpAddressOrderByCreatedDateDesc(clientAddr, pageable).map(MainRequest.Dto::new);
     }
 }

@@ -37,6 +37,6 @@ public class AdminRequestService implements RequestService<AdminRequest.Dto> {
     public Page<AdminRequest.Dto> find(HttpServletRequest request, Pageable pageable) {
         String clientAddr = NetworkUtil.getClientAddr(request);
         LOGGER.info("Find request by -> {}, pageable -> {}", clientAddr, pageable);
-        return adminRequestRepository.findAllByIpAddress(clientAddr, pageable).map(AdminRequest.Dto::new);
+        return adminRequestRepository.findAllByIpAddressOrderByCreatedDateDesc(clientAddr, pageable).map(AdminRequest.Dto::new);
     }
 }

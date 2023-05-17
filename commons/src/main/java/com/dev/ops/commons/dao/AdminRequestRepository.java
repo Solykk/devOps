@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author Dmitriy Lyashenko
  */
 public interface AdminRequestRepository extends JpaRepository<AdminRequest, Integer> {
-    Page<AdminRequest> findAllByIpAddress(String ipAddress, Pageable pageable);
+    Page<AdminRequest> findAllByIpAddressOrderByCreatedDateDesc(String ipAddress, Pageable pageable);
 }
